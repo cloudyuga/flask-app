@@ -18,7 +18,7 @@ node('dockerhost') {
     // Roll out to staging
     case "staging":
         sh("docker run -d --name=staging_flask -p 5001:5000 ${imageTag}")
-        input 'looks good' ?
+        input 'looks good ?' 
         sh("docker rm -f staging_flask")
         break
 
