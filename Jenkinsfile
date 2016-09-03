@@ -23,6 +23,7 @@ node('dockerhost') {
     // Roll out to production
     case "master":
         input 'are you sure ?'
+        sh("docker rm -f production_flask")
         sh("docker run -d --name=production_flask -p 5000:5000 ${imageTag}")
         break
 
